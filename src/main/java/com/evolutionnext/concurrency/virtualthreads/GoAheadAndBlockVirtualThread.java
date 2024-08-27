@@ -8,6 +8,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.stream.Stream;
 
 public class GoAheadAndBlockVirtualThread {
+
+    //To run in Gitpod: Please change the following environment variable
+    // export JAVA_TOOL_OPTIONS="-XX:+UseContainerSupport"
+
     public static void main(String[] args)
         throws InterruptedException {
 
