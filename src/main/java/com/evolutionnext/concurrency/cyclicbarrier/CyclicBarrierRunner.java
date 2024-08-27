@@ -27,8 +27,14 @@ public class CyclicBarrierRunner {
                 System.out.printf("Cyclic Barrier says: parties: %d, waiting: %d%n",
                     cyclicBarrier.getParties(),
                     cyclicBarrier.getNumberWaiting());
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }   
             }
         });
+        
         daemonReporter.setDaemon(true);
         daemonReporter.start();
         t1.start();
