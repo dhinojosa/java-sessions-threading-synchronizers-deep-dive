@@ -4,7 +4,7 @@
 
 ## Introduction
 
-1. Where do work? What you do? Are you an architect?
+1. Where do work? What you do?
 2. What version of Java do you use at work and/or personal projects
 3. What IDE do you typically use?
 4. What city time zone are you in?
