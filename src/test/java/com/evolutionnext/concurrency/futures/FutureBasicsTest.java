@@ -18,22 +18,15 @@ public class FutureBasicsTest {
         ExecutorService fixedThreadPool =
                 Executors.newFixedThreadPool(5);
 
-        Callable<Integer> callable = new Callable<Integer>() {
-            @Override
-            public Integer call() throws Exception {
-                System.out.println("Inside the future: " +
-                        Thread.currentThread().getName());
-                System.out.println("Future priority: "
-                        + Thread.currentThread().getPriority());
-                Thread.sleep(5000);
-                return 5 + 3;
-            }
+        Callable<Integer> callable = () -> {
+            System.out.println("Inside the future: " +
+                    Thread.currentThread().getName());
+            Thread.sleep(5000);
+            return 5 + 3;
         };
 
         System.out.println("In test:" +
                 Thread.currentThread().getName());
-        System.out.println("Main priority" +
-                Thread.currentThread().getPriority());
 
         Future<Integer> future = fixedThreadPool.submit(callable);
 
@@ -89,8 +82,11 @@ public class FutureBasicsTest {
         });
     }
     @Test
-    void testMakingItLazy() {
+    void testMakingItLazy() throws InterruptedException, ExecutionException {
+        System.out.println("Running, ready to begin");
         Future<Integer> future = makeItLazyAsAMethod();
+        Integer result = future.get();
+        System.out.printf("The result is %d%n", result);
     }
 
     @Test
@@ -124,7 +120,7 @@ public class FutureBasicsTest {
     @Test
     public void testGettingUrl() throws ExecutionException, InterruptedException {
         Future<Stream<String>> future =
-                downloadingContentFromURL("https://openjdk.java.net/");
+                downloadingContentFromURL("https://javaalmanac.io/");
         while (!future.isDone()) {
             Thread.sleep(1000);
             System.out.println("Doing Something Else");
