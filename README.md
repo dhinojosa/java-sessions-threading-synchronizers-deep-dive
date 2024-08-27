@@ -7,7 +7,7 @@
 1. Where do work? What you do?
 2. What version of Java do you use at work and/or personal projects
 3. What IDE do you typically use?
-4. What city time zone are you in?
+4. What city/time zone are you in?
 5. What do you like to do for zen?
    
    a. Swimming, Running, Hiking
